@@ -3,7 +3,6 @@ package com.example.backendh93p1.controller;
 import com.example.backendh93p1.entity.RolEntity;
 import com.example.backendh93p1.entity.UsuarioRolEntity;
 import com.example.backendh93p1.entity.UsuariosEntity;
-import com.example.backendh93p1.repository.UsuarioRepository;
 import com.example.backendh93p1.services.UsuarioServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

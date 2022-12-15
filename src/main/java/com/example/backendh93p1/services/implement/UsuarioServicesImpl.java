@@ -3,7 +3,7 @@ package com.example.backendh93p1.services.implement;
 import com.example.backendh93p1.entity.UsuarioRolEntity;
 import com.example.backendh93p1.entity.UsuariosEntity;
 import com.example.backendh93p1.repository.RolRepository;
-import com.example.backendh93p1.repository.UsuarioRepository;
+import com.example.backendh93p1.repository.UsuriousRepository;
 import com.example.backendh93p1.services.UsuarioServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.Set;
 public class UsuarioServicesImpl implements UsuarioServices {
 
     @Autowired
-    private UsuarioRepository userRepo;
+    private UsuriousRepository userRepo;
 
     @Autowired
     private RolRepository rolRepo;
