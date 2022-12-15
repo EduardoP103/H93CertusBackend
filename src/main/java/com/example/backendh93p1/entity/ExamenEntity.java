@@ -21,11 +21,11 @@ public class ExamenEntity {
     private boolean activo = false;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private CategoriaEntity categoriaEntity;
+    private CategoriaEntity categoria;
 
-    @OneToMany(mappedBy = "examenEntity",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "examen",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
-    private Set<PreguntaEntity> preguntaEntities = new HashSet<>();
+    private Set<PreguntaEntity> preguntas = new HashSet<>();
 
     public Long getExamenId() {
         return examenId;
@@ -76,19 +76,19 @@ public class ExamenEntity {
     }
 
     public CategoriaEntity getCategoria() {
-        return categoriaEntity;
+        return categoria;
     }
 
-    public void setCategoria(CategoriaEntity categoriaEntity) {
-        this.categoriaEntity = categoriaEntity;
+    public void setCategoria(CategoriaEntity categoria) {
+        this.categoria = categoria;
     }
 
     public Set<PreguntaEntity> getPreguntas() {
-        return preguntaEntities;
+        return preguntas;
     }
 
-    public void setPreguntas(Set<PreguntaEntity> preguntaEntities) {
-        this.preguntaEntities = preguntaEntities;
+    public void setPreguntas(Set<PreguntaEntity> preguntas) {
+        this.preguntas = preguntas;
     }
 
     public ExamenEntity() {

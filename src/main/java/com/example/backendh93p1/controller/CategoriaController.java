@@ -12,21 +12,31 @@ import org.springframework.web.bind.annotation.*;
 public class CategoriaController {
 
     @Autowired
-    private CategoriaService  categoriaService;
+    private CategoriaService categoriaService;
 
-    @GetMapping ("/listar")
-    public ResponseEntity<?> listarCategoria (){
+    @PostMapping("/agregar")
+    public ResponseEntity<CategoriaEntity> guardarCategoria(@RequestBody CategoriaEntity categoria){
+        CategoriaEntity categoriaGuardada = categoriaService.agregarCategoria(categoria);
+        return ResponseEntity.ok(categoriaGuardada);
+    }
+
+    @GetMapping("/{categoriaId}")
+    public CategoriaEntity listarCategoriaPorId(@PathVariable("categoriaId") Long categoriaId){
+        return categoriaService.obtenerCategoria(categoriaId);
+    }
+
+    @GetMapping("/obtener")
+    public ResponseEntity<?> listarCategorias(){
         return ResponseEntity.ok(categoriaService.obtenerCategorias());
     }
 
-    @GetMapping ("/listar/{idCategoria}")
-    public CategoriaEntity listarCategoriaId (@PathVariable ("idCategoria") Long idCategoria){
-        return categoriaService.obtenerCategoria(idCategoria);
+    @PutMapping("/modificar")
+    public CategoriaEntity actualizarCategoria(@RequestBody CategoriaEntity categoria){
+        return categoriaService.actualizarCategoria(categoria);
     }
 
-    @PostMapping ("/agregar")
-    public ResponseEntity<CategoriaEntity> agregarCategoria (@RequestBody CategoriaEntity categoriaEntity){
-        CategoriaEntity categorianueva = categoriaService.agregarCategoria(categoriaEntity);
-        return  ResponseEntity.ok(categorianueva);
+    @DeleteMapping("/eliminar/{categoriaId}")
+    public void eliminarCategoria(@PathVariable("categoriaId") Long categoriaId){
+        categoriaService.eliminarCategoria(categoriaId);
     }
 }

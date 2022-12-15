@@ -10,9 +10,9 @@ import java.util.Set;
 @Service
 public interface ExamenService {
 
-    ExamenEntity agregarExamen(ExamenEntity examenEntity);
+    ExamenEntity agregarExamen(ExamenEntity examen);
 
-    ExamenEntity actualizarExamen(ExamenEntity examenEntity);
+    ExamenEntity actualizarExamen(ExamenEntity examen);
 
     Set<ExamenEntity> obtenerExamenes();
 
@@ -20,9 +20,9 @@ public interface ExamenService {
 
     void eliminarExamen(Long examenId);
 
-    List<ExamenEntity> listarExamenesDeUnaCategoria(CategoriaEntity categoriaEntity);
+    List<ExamenEntity> listarExamenesDeUnaCategoria(CategoriaEntity categoria);
 
     List<ExamenEntity> obtenerExamenesActivos();
 
-    List<ExamenEntity> obtenerExamenesActivosDeUnaCategoria(CategoriaEntity categoriaEntity);
+    List<ExamenEntity> obtenerExamenesActivosDeUnaCategoria(CategoriaEntity categoria);
 }

@@ -19,13 +19,13 @@ public class ExamenServiceImpl implements ExamenService {
     private ExamenRepository examenRepository;
 
     @Override
-    public ExamenEntity agregarExamen(ExamenEntity examenEntity) {
-        return examenRepository.save(examenEntity);
+    public ExamenEntity agregarExamen(ExamenEntity examen) {
+        return examenRepository.save(examen);
     }
 
     @Override
-    public ExamenEntity actualizarExamen(ExamenEntity examenEntity) {
-        return examenRepository.save(examenEntity);
+    public ExamenEntity actualizarExamen(ExamenEntity examen) {
+        return examenRepository.save(examen);
     }
 
     @Override
@@ -40,14 +40,14 @@ public class ExamenServiceImpl implements ExamenService {
 
     @Override
     public void eliminarExamen(Long examenId) {
-        ExamenEntity examenEntity = new ExamenEntity();
-        examenEntity.setExamenId(examenId);
-        examenRepository.delete(examenEntity);
+        ExamenEntity examen = new ExamenEntity();
+        examen.setExamenId(examenId);
+        examenRepository.delete(examen);
     }
 
     @Override
-    public List<ExamenEntity> listarExamenesDeUnaCategoria(CategoriaEntity categoriaEntity) {
-        return this.examenRepository.findByCategoria(categoriaEntity);
+    public List<ExamenEntity> listarExamenesDeUnaCategoria(CategoriaEntity categoria) {
+        return this.examenRepository.findByCategoria(categoria);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ExamenServiceImpl implements ExamenService {
     }
 
     @Override
-    public List<ExamenEntity> obtenerExamenesActivosDeUnaCategoria(CategoriaEntity categoriaEntity) {
-        return examenRepository.findByCategoriaAndActivo(categoriaEntity,true);
+    public List<ExamenEntity> obtenerExamenesActivosDeUnaCategoria(CategoriaEntity categoria) {
+        return examenRepository.findByCategoriaAndActivo(categoria,true);
     }
 }

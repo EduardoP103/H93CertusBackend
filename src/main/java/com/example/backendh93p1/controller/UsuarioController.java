@@ -13,7 +13,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 public class UsuarioController {
 
     @Autowired
@@ -30,15 +30,15 @@ public class UsuarioController {
     @PostMapping("/registrarUsuario")
     public UsuariosEntity agregarUsuario (@RequestBody UsuariosEntity userJsonEntity) throws Exception{
 
-         Set<UsuarioRolEntity> userRolController =  new HashSet<>();
+        Set<UsuarioRolEntity> userRolController =  new HashSet<>();
 
-         RolEntity rol = new RolEntity();
-         rol.setIdrol(1);
-         rol.setNombrol("Cliente");
+        RolEntity rol = new RolEntity();
+        rol.setIdrol(1);
+        rol.setNombrol("Cliente");
 
-         UsuarioRolEntity userrol = new UsuarioRolEntity();
-         userrol.setUsuariorol(userJsonEntity);
-         userrol.setRolusario(rol);
+        UsuarioRolEntity userrol = new UsuarioRolEntity();
+        userrol.setUsuariorol(userJsonEntity);
+        userrol.setRolusario(rol);
 
         userRolController.add(userrol);
 

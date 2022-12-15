@@ -15,13 +15,13 @@ public class CategoriaServiceImpl implements CategoriaService {
     private CategoriaRepository categoriaRepository;
 
     @Override
-    public CategoriaEntity agregarCategoria(CategoriaEntity categoriaEntity) {
-        return categoriaRepository.save(categoriaEntity);
+    public CategoriaEntity agregarCategoria(CategoriaEntity categoria) {
+        return categoriaRepository.save(categoria);
     }
 
     @Override
-    public CategoriaEntity actualizarCategoria(CategoriaEntity categoriaEntity) {
-        return categoriaRepository.save(categoriaEntity);
+    public CategoriaEntity actualizarCategoria(CategoriaEntity categoria) {
+        return categoriaRepository.save(categoria);
     }
 
     @Override
@@ -36,8 +36,8 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public void eliminarCategoria(Long categoriaId) {
-        CategoriaEntity categoriaEntity = new CategoriaEntity();
-        categoriaEntity.setCategoriaId(categoriaId);
-        categoriaRepository.delete(categoriaEntity);
+        CategoriaEntity categoria = new CategoriaEntity();
+        categoria.setCategoriaId(categoriaId);
+        categoriaRepository.delete(categoria);
     }
 }

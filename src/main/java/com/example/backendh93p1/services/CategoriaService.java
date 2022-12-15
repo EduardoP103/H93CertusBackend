@@ -8,9 +8,9 @@ import java.util.Set;
 @Service
 public interface CategoriaService {
 
-    CategoriaEntity agregarCategoria(CategoriaEntity categoriaEntity);
+    CategoriaEntity agregarCategoria(CategoriaEntity categoria);
 
-    CategoriaEntity actualizarCategoria(CategoriaEntity categoriaEntity);
+    CategoriaEntity actualizarCategoria(CategoriaEntity categoria);
 
     Set<CategoriaEntity> obtenerCategorias();
 

@@ -16,13 +16,13 @@ public class PreguntaServiceImpl implements PreguntaService {
     private PreguntaRepository preguntaRepository;
 
     @Override
-    public PreguntaEntity agregarPregunta(PreguntaEntity preguntaEntity) {
-        return preguntaRepository.save(preguntaEntity);
+    public PreguntaEntity agregarPregunta(PreguntaEntity pregunta) {
+        return preguntaRepository.save(pregunta);
     }
 
     @Override
-    public PreguntaEntity actualizarPregunta(PreguntaEntity preguntaEntity) {
-        return preguntaRepository.save(preguntaEntity);
+    public PreguntaEntity actualizarPregunta(PreguntaEntity pregunta) {
+        return preguntaRepository.save(pregunta);
     }
 
     @Override
@@ -36,15 +36,15 @@ public class PreguntaServiceImpl implements PreguntaService {
     }
 
     @Override
-    public Set<PreguntaEntity> obtenerPreguntasDelExamen(ExamenEntity examenEntity) {
-        return preguntaRepository.findByExamen(examenEntity);
+    public Set<PreguntaEntity> obtenerPreguntasDelExamen(ExamenEntity examen) {
+        return preguntaRepository.findByExamen(examen);
     }
 
     @Override
     public void eliminarPregunta(Long preguntaId) {
-        PreguntaEntity preguntaEntity = new PreguntaEntity();
-        preguntaEntity.setPreguntaId(preguntaId);
-        preguntaRepository.delete(preguntaEntity);
+        PreguntaEntity pregunta = new PreguntaEntity();
+        pregunta.setPreguntaId(preguntaId);
+        preguntaRepository.delete(pregunta);
     }
 
     @Override

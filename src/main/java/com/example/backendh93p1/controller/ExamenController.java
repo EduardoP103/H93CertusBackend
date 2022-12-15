@@ -1,42 +1,64 @@
 package com.example.backendh93p1.controller;
 
+import com.example.backendh93p1.entity.CategoriaEntity;
 import com.example.backendh93p1.entity.ExamenEntity;
 import com.example.backendh93p1.services.ExamenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/examen")
 @CrossOrigin("*")
-
 public class ExamenController {
 
     @Autowired
     private ExamenService examenService;
 
-    @GetMapping
-    public List<ExamenEntity> busquedaexamen() {
-        return (List<ExamenEntity>) examenService.obtenerExamenes();
+    @PostMapping("/agregar")
+    public ResponseEntity<ExamenEntity> guardarExamen(@RequestBody ExamenEntity examen){
+        return ResponseEntity.ok(examenService.agregarExamen(examen));
     }
 
-    @PostMapping
-    public void crearexamen(@RequestBody ExamenEntity examenClient) {
-        examenService.agregarExamen(examenClient);
+    @PutMapping("/modificar")
+    public ResponseEntity<ExamenEntity> actualizarExamen(@RequestBody ExamenEntity examen){
+        return ResponseEntity.ok(examenService.actualizarExamen(examen));
     }
 
-    @PutMapping
-    public void actualizarExamen(@RequestBody ExamenEntity examenClient){
-        examenService.actualizarExamen(examenClient);
+    @GetMapping("/obtener")
+    public ResponseEntity<?> listarExamenes(){
+        return ResponseEntity.ok(examenService.obtenerExamenes());
     }
-    @GetMapping (value = "{idexamen}")
-    public ExamenEntity obtenerExamenId (@PathVariable ("idexamen") Long idexamen){
-        return examenService.obtenerExamen(idexamen);
 
+    @GetMapping("/obtener/{examenId}")
+    public ExamenEntity listarExamen(@PathVariable("examenId") Long examenId){
+        return examenService.obtenerExamen(examenId);
     }
+
+    @DeleteMapping("/eliminar/{examenId}")
+    public void eliminarExamen(@PathVariable("examenId") Long examenId){
+        examenService.eliminarExamen(examenId);
+    }
+
+    @GetMapping("/categoria/{categoriaId}")
+    public List<ExamenEntity> listarExamenesDeUnaCategoria(@PathVariable("categoriaId") Long categoriaId){
+        CategoriaEntity categoria = new CategoriaEntity();
+        categoria.setCategoriaId(categoriaId);
+        return examenService.listarExamenesDeUnaCategoria(categoria);
+    }
+
+    @GetMapping("/activo")
+    public List<ExamenEntity> listarExamenesActivos(){
+        return examenService.obtenerExamenesActivos();
+    }
+
+    @GetMapping("/categoria/activo/{categoriaId}")
+    public List<ExamenEntity> listarExamenesActivosDeUnaCategoria(@PathVariable("categoriaId") Long categoriaId){
+        CategoriaEntity categoria = new CategoriaEntity();
+        categoria.setCategoriaId(categoriaId);
+        return examenService.obtenerExamenesActivosDeUnaCategoria(categoria);
+    }
+
 }

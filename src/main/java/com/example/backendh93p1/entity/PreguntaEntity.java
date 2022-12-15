@@ -24,7 +24,7 @@ public class PreguntaEntity {
     private String respuesta;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private ExamenEntity examenEntity;
+    private ExamenEntity examen;
 
     public Long getPreguntaId() {
         return preguntaId;
@@ -83,11 +83,11 @@ public class PreguntaEntity {
     }
 
     public ExamenEntity getExamen() {
-        return examenEntity;
+        return examen;
     }
 
-    public void setExamen(ExamenEntity examenEntity) {
-        this.examenEntity = examenEntity;
+    public void setExamen(ExamenEntity examen) {
+        this.examen = examen;
     }
 
     public String getRespuestaDada() {

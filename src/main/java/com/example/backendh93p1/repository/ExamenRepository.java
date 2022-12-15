@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface ExamenRepository extends JpaRepository<ExamenEntity,Long> {
 
-    List<ExamenEntity> findByCategoria(CategoriaEntity categoriaEntity);
+    List<ExamenEntity> findByCategoria(CategoriaEntity categoria);
 
     List<ExamenEntity> findByActivo(Boolean estado);
 
-    List<ExamenEntity> findByCategoriaAndActivo(CategoriaEntity categoriaEntity, Boolean estado);
+    List<ExamenEntity> findByCategoriaAndActivo(CategoriaEntity categoria,Boolean estado);
 }

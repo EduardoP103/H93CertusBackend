@@ -9,5 +9,5 @@ import java.util.Set;
 
 @Repository
 public interface PreguntaRepository extends JpaRepository<PreguntaEntity,Long> {
-    Set<PreguntaEntity> findByExamen(ExamenEntity examenEntity);
+    Set<PreguntaEntity> findByExamen(ExamenEntity examen);
 }

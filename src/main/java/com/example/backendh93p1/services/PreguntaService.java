@@ -9,15 +9,15 @@ import java.util.Set;
 @Service
 public interface PreguntaService {
 
-    PreguntaEntity agregarPregunta(PreguntaEntity preguntaEntity);
+    PreguntaEntity agregarPregunta(PreguntaEntity pregunta);
 
-    PreguntaEntity actualizarPregunta(PreguntaEntity preguntaEntity);
+    PreguntaEntity actualizarPregunta(PreguntaEntity pregunta);
 
     Set<PreguntaEntity> obtenerPreguntas();
 
     PreguntaEntity obtenerPregunta(Long preguntaId);
 
-    Set<PreguntaEntity> obtenerPreguntasDelExamen(ExamenEntity examenEntity);
+    Set<PreguntaEntity> obtenerPreguntasDelExamen(ExamenEntity examen);
 
     void eliminarPregunta(Long preguntaId);
 
